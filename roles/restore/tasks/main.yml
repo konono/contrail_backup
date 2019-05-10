@@ -1,0 +1,17 @@
+---
+- block:
+
+  - name: Restore config
+    shell: docker exec -i contrail_config_api python /usr/lib/python2.7/site-packages/cfgm_common/db_json_exim.py --import-from db-dump.json
+    when: inventory_hostname == target
+
+  - name: Wait 60 seconds
+    pause:
+      seconds: 60
+
+  - name: Repair cassandra
+    shell: docker exec -i contrail_config_database nodetool -p 7201 repair --full
+    when: inventory_hostname == target
+
+  become: yes
+  become_method: sudo

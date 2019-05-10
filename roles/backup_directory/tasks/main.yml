@@ -1,0 +1,11 @@
+---
+- block:
+
+  - name: Backup directory
+    shell: cp -R /var/lib/docker/volumes/config_zookeeper/_data/version-2 /var/lib/docker/volumes/config_zookeeper/_data/version-2-save
+
+  - name: Backup directory
+    shell: cp -R /var/lib/docker/volumes/config_cassandra /var/lib/docker/volumes/config_cassandra-save
+
+  become: yes
+  become_method: sudo

@@ -1,0 +1,11 @@
+---
+- block:
+
+  - name: Remove config_zookeeper
+    shell: rm -rf /var/lib/docker/volumes/config_zookeeper/_data/version-2/*
+
+  - name: Remove directory
+    shell: rm -rf /var/lib/docker/volumes/config_cassandra/_data/*
+
+  become: yes
+  become_method: sudo

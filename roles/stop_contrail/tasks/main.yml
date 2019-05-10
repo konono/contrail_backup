@@ -1,0 +1,11 @@
+---
+- block:
+
+  - name: Stop config zookeeper
+    shell: docker stop contrail_config_zookeeper
+
+  - name: Stop config cassandra
+    shell: docker stop contrail_config_database
+
+  become: yes
+  become_method: sudo

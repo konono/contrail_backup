@@ -1,0 +1,16 @@
+---
+- block:
+
+  - name: Start config zookeeper
+    shell: docker start contrail_config_zookeeper
+
+  - name: Start config cassandra
+    shell: docker start contrail_config_database
+
+  - name: Wait 120 seconds
+    pause:
+      seconds: 120
+    when: restore
+
+  become: yes
+  become_method: sudo

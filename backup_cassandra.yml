@@ -1,0 +1,6 @@
+- hosts:
+    - ContrailController
+  vars:
+    target: overcloud-contrailcontroller-0
+  roles:
+    - backup_cassandra

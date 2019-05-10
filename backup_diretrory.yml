@@ -1,0 +1,8 @@
+- hosts:
+    - ContrailController
+  vars: 
+    restore: false
+  roles:
+    - stop_contrail
+    - backup_directory
+    - start_contrail

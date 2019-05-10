@@ -1,0 +1,11 @@
+- hosts:
+    - ContrailController
+  vars:
+    target: overcloud-contrailcontroller-0
+    restore: true
+  roles:
+    - stop_contrail
+    - remove_directory
+    - start_contrail
+    - restore
+

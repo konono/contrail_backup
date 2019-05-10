@@ -1,0 +1,61 @@
+ContrailController:
+  hosts:
+    overcloud-contrailcontroller-0:
+      ansible_host: 172.16.1.13
+      ctlplane_ip: 172.16.1.13
+      deploy_server_id: 1ee09196-62b9-4d96-81de-7cdce25523d7
+      enabled_networks: [management, storage, ctlplane, external, internal_api, storage_mgmt,
+        tenant]
+      external_ip: 172.16.1.13
+      internal_api_ip: 172.27.116.13
+      management_ip: 172.16.1.13
+      storage_ip: 172.16.1.13
+      storage_mgmt_ip: 172.16.1.13
+      tenant_ip: 172.16.4.13
+    overcloud-contrailcontroller-1:
+      ansible_host: 172.16.1.14
+      ctlplane_ip: 172.16.1.14
+      deploy_server_id: 14397916-d0cd-4d70-b81c-1a353ce7d100
+      enabled_networks: [management, storage, ctlplane, external, internal_api, storage_mgmt,
+        tenant]
+      external_ip: 172.16.1.14
+      internal_api_ip: 172.27.116.14
+      management_ip: 172.16.1.14
+      storage_ip: 172.16.1.14
+      storage_mgmt_ip: 172.16.1.14
+      tenant_ip: 172.16.4.14
+    overcloud-contrailcontroller-2:
+      ansible_host: 172.16.1.15
+      ctlplane_ip: 172.16.1.15
+      deploy_server_id: 5dd121fe-966d-452b-baf4-36e904450248
+      enabled_networks: [management, storage, ctlplane, external, internal_api, storage_mgmt,
+        tenant]
+      external_ip: 172.16.1.15
+      internal_api_ip: 172.27.116.15
+      management_ip: 172.16.1.15
+      storage_ip: 172.16.1.15
+      storage_mgmt_ip: 172.16.1.15
+      tenant_ip: 172.16.4.15
+  vars: {ansible_ssh_user: heat-admin, bootstrap_server_id: 20dec5cd-f720-47b2-a7e7-e170078b95b9,
+    role_name: ContrailController, tripleo_role_name: ContrailController}
+docker_host:
+  children:
+    ContrailController: {}
+  vars: {ansible_ssh_user: heat-admin}
+#[ContrailControllers:children]
+#ContrailController01
+#ContrailController02
+#ContrailController03
+#
+#[ContrailController01]
+#172.16.1.13
+#
+#[ContrailController02]
+#172.16.1.14
+#
+#[ContrailController03]
+#172.16.1.15
+#
+#[all:vars]
+#ansible_ssh_user=heat-admin
+#

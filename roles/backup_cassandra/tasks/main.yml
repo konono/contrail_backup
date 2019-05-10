@@ -1,0 +1,9 @@
+---
+- block:
+
+  - name: Backup cassandra db
+    shell: docker exec -i contrail_config_api python /usr/lib/python2.7/site-packages/cfgm_common/db_json_exim.py --export-to db-dump.json
+    when: facter_hostname == target
+
+  become: yes
+  become_method: sudo
